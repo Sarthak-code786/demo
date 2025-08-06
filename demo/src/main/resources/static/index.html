@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot CRUD UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Spring Boot CRUD UI</h1>
+            <p>Simple CRUD operations with LocalStorage</p>
+        </header>
+        
+        <div class="form-section">
+            <div class="input-group">
+                <input type="text" id="nameInput" placeholder="Enter item name..." />
+                <button onclick="addItem()" class="btn btn-primary">Add Item</button>
+            </div>
+        </div>
+        
+        <div class="list-section">
+            <h3>📋 Items List</h3>
+            <ul id="itemList" class="item-list"></ul>
+        </div>
+        
+        <div class="stats">
+            <p>Total Items: <span id="itemCount">0</span></p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
