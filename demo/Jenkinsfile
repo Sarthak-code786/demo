@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    tools {
+        jdk 'jdk17'             // Jenkins JDK 17 (configured in Global Tools)
+        maven 'Maven-3.8.7'     // Jenkins Maven 3.8.7 (configured in Global Tools)
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Sarthak-code786/demo.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo " Building the project with Maven..."
+                sh 'mvn clean install -DskipTests'
+            }
+        }
+
+        stage('Unit Tests') {
+            steps {
+                echo " Running unit tests..."
+                sh 'mvn test'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo " Build completed successfully with JDK 17 and Maven 3.8.7!"
+        }
+        failure {
+            echo " Build failed. Please check the logs above."
+        }
+    }
+}
