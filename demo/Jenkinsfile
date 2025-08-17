@@ -15,10 +15,12 @@ pipeline {
 
         stage('Build') {
             steps {
+                dir('demo'){
                 echo " Building the project with Maven..."
                 sh 'mvn clean install -DskipTests'
             }
         }
+    }      
 
         stage('Unit Tests') {
             steps {
