@@ -24,9 +24,11 @@ pipeline {
 
         stage('Unit Tests') {
             steps {
+                dir('demo'){
                 echo " Running unit tests..."
                 sh 'mvn test'
             }
+        }
         }
     }
 
